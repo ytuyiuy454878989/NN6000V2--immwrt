@@ -205,6 +205,16 @@ fix_zerotier_nonfree() {
     sed -i 's/ZT_NONFREE=0/ZT_NONFREE=1/g' "$makefile"
 }
 
+fix_miniupnpd_patches() {
+    local dir="$BUILD_DIR/feeds/packages/net/miniupnpd/patches"
+    local name
+    for name in 020-descr-filter-fix.patch 030-allow-private-fix.patch 040-improve-logging.patch; do
+        [ -f "$dir/$name" ] || continue
+        rm -f "$dir/$name"
+        echo "正在移除已被上游合并的 miniupnpd 补丁：$name"
+    done
+}
+
 fix_smartdns_makefile() {
     local makefile="$BUILD_DIR/feeds/openwrt_packages/smartdns/Makefile"
     if [ ! -f "$makefile" ]; then
