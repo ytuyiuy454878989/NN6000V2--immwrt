@@ -229,6 +229,23 @@ install_extra_feed_deps() {
     (cd "$BUILD_DIR" && ./scripts/feeds install -f luci-lib-jsonc kmod-ipt-conntrack kmod-ipt-nat)
 }
 
+
+clone_easytier() {
+    local EASYTIER_DIR="$OPENWRT_PACKAGES_DIR/luci-app-easytier"
+    local TEMP_DIR="$OPENWRT_PACKAGES_DIR/easytier-temp"
+
+    clone_packages "luci-app-easytier" \
+        "${GITHUB_BASE}EasyTier/luci-app-easytier.git" \
+        "$TEMP_DIR" \
+        "luci-app-easytier" \
+        "" \
+        "" \
+        "$TEMP_DIR/luci-app-easytier" \
+        "$EASYTIER_DIR"
+
+    rm -rf "$TEMP_DIR"
+}
+
 clone_oaf() {
     local OAF_REPO="${GITHUB_BASE}destan19/OpenAppFilter.git"
     local OAF_DIR="$OPENWRT_PACKAGES_DIR/OpenAppFilter"
