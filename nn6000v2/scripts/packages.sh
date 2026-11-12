@@ -94,8 +94,8 @@ install_openwrt_packages() {
         luci-app-oaf oaf open-app-filter \
         luci-app-dockerman luci-app-quickfile \
         luci-app-mini-diskmanager \
-        luci-app-tailscale-community luci-app-zerotier \
-        easytier luci-app-easytier  openlist2 luci-app-openlist2 luci-app-xunlei
+        easytier luci-app-easytier luci-app-tailscale-community luci-app-zerotier \
+        luci-app-emmc-health   openlist2 luci-app-openlist2 luci-app-xunlei
 }
 
 clone_singbox() {
