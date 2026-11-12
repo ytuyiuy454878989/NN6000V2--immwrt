@@ -23,8 +23,8 @@ update_feeds() {
         echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >>"$FEEDS_PATH"
     fi
 
-    if ! grep -q "Openwrt-Passwall/openwrt-passwall.git" "$FEEDS_PATH"; then
-        echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main" >>"$FEEDS_PATH"
+    if ! grep -q "easytier-packages" "$FEEDS_PATH"; then
+        echo "src-git easytier https://github.com/kenzok8/small-package/tree/main/easytier.git;main" >>"$FEEDS_PATH"
     fi
 
     if [ ! -f "$BUILD_DIR/include/bpf.mk" ]; then
