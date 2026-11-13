@@ -20,6 +20,14 @@ update_feeds() {
     if ! grep -q "Openwrt-Passwall/openwrt-passwall.git" "$FEEDS_PATH"; then
         echo "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main" >>"$FEEDS_PATH"
     fi
+    if ! grep -q "luci-app-easytier" "$FEEDS_PATH"; then
+        echo "src-git luci-app-easytier https://github.com/kenzok8/small-package/tree/main/luci-app-easytier.git;main" >>"$FEEDS_PATH"
+    fi
+    
+    if ! grep -q "easytier" "$FEEDS_PATH"; then
+        echo "src-git easytier https://github.com/kenzok8/small-package/tree/main/easytier.git;main" >>"$FEEDS_PATH"
+    fi
+
 
     if [ ! -f "$BUILD_DIR/include/bpf.mk" ]; then
         touch "$BUILD_DIR/include/bpf.mk"
