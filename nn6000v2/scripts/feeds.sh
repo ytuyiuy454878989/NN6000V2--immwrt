@@ -13,12 +13,6 @@ update_feeds() {
         echo "src-git openwrt_packages https://github.com/kenzok8/openwrt-packages.git" >>"$FEEDS_PATH"
     fi
 
-        if ! grep -q "small-packages" "$FEEDS_PATH"; then
-        [ -z "$(tail -c 1 "$FEEDS_PATH")" ] || echo "" >>"$FEEDS_PATH"
-        echo "src-git small_packages https://github.com/kenzok8/small-package.git" >>"$FEEDS_PATH"
-    fi
-
-
     if ! grep -q "openwrt-passwall-packages" "$FEEDS_PATH"; then
         echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >>"$FEEDS_PATH"
     fi

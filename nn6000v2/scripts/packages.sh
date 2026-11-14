@@ -94,8 +94,8 @@ install_openwrt_packages() {
         luci-app-oaf oaf open-app-filter \
         luci-app-dockerman luci-app-quickfile \
         luci-app-mini-diskmanager \
-        easytier luci-app-easytier luci-app-tailscale-community luci-app-zerotier \
-        luci-app-emmc-health   openlist2 luci-app-openlist2 luci-app-xunlei
+        luci-app-tailscale-community luci-app-zerotier \
+        easytier luci-app-easytier  openlist2 luci-app-openlist2 luci-app-xunlei
 }
 
 clone_singbox() {
@@ -227,23 +227,6 @@ clone_zerotier() {
 
 install_extra_feed_deps() {
     (cd "$BUILD_DIR" && ./scripts/feeds install -f luci-lib-jsonc kmod-ipt-conntrack kmod-ipt-nat)
-}
-
-
-clone_easytier() {
-    local EASYTIER_DIR="$OPENWRT_PACKAGES_DIR/luci-app-easytier"
-    local TEMP_DIR="$OPENWRT_PACKAGES_DIR/easytier-temp"
-
-    clone_packages "luci-app-easytier" \
-        "${GITHUB_BASE}EasyTier/luci-app-easytier.git" \
-        "$TEMP_DIR" \
-        "luci-app-easytier" \
-        "" \
-        "" \
-        "$TEMP_DIR/luci-app-easytier" \
-        "$EASYTIER_DIR"
-
-    rm -rf "$TEMP_DIR"
 }
 
 clone_oaf() {
