@@ -26,7 +26,7 @@ fi
 
 # Use environment variables or defaults for repo config
 REPO_URL=${REPO_URL:-https://github.com/VIKINGYFY/immortalwrt.git}
-REPO_BRANCH=${REPO_BRANCH:-main}
+REPO_BRANCH=${REPO_BRANCH:-owrt}
 BUILD_DIR=${BUILD_DIR:-imm-nss}
 COMMIT_HASH=${COMMIT_HASH:-none}
 
